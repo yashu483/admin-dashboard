@@ -1,0 +1,58 @@
+/* :root{
+
+} */
+
+*{
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+body,
+html{
+    margin: none;
+    padding: none;
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.grid-container{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 5fr;
+}
+.header{
+    display: grid;
+    grid-row: 1;
+    grid-column: 2 / -1;
+    border: 1px solid blue;
+}
+
+.sidebar{
+    grid-column: 1;
+    grid-row: 1 / -1;
+    border: 1px solid orange;
+
+}
+
+.projects{
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    border: 1px solid black;
+
+}
+
+.news{
+    grid-column: 3;
+    grid-row: 2;
+    display: grid;
+    border: 1px solid greenyellow;
+
+}
