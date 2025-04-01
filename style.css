@@ -1,4 +1,7 @@
-:root {}
+:root {
+    --roboto : "roboto" , "fira-code" , system-ui ;
+    --fira-code: "fira-code", "roboto" , system-ui;
+}
 
 @font-face {
     font-family: 'fira-code';
@@ -8,6 +11,13 @@
     font-weight: normal;
 }
 
+@font-face {
+    font-family: 'roboto';
+    src: url("resources/fonts/Roboto-Regular.woff2") format("woff2"),
+    url("resources/fonts/Roboto-Regular.woff") format("woff");
+    font-style: normal;
+    font-weight: normal;
+}
 * {
     box-sizing: border-box;
 }
@@ -22,7 +32,7 @@ html {
     overflow-x: hidden;
     overflow-y: hidden;
     box-sizing: border-box;
-    font-family: "fira-code", system-ui;
+    font-family: var(--fira-code);
 }
 
 body {
@@ -191,18 +201,17 @@ body {
     grid-template-rows: repeat(3, max-content);
     gap: 4rem;
     padding: 2rem 3rem 2rem 3rem;
-    /* justify-content: stretch;
-    align-items: center;
-    justify-items: center; */
+
 }
 
-.sidebar svg{
+.sidebar svg {
     height: 1.4rem;
     width: 1.4rem;
     fill: white;
     margin: 0;
 }
-.sidebar div:nth-child(1){
+
+.sidebar div:nth-child(1) {
     font-size: 1.7rem;
     font-weight: 1000;
     display: flex;
@@ -210,11 +219,12 @@ body {
     align-items: center;
 }
 
-#dashboard{
+#dashboard {
     height: 2.5rem;
     width: 2.5rem;
 }
-.sidebar ul{
+
+.sidebar ul {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
@@ -222,21 +232,82 @@ body {
     grid-template-rows: repeat(6, max-content);
     gap: 1.2rem;
 }
-.sidebar ul > li{
+
+.sidebar ul>li {
     display: flex;
     gap: 2rem;
     margin: 0px;
     align-items: center;
     text-align: center;
 }
+
 .projects {
     grid-column: 2;
     grid-row: 2;
     display: grid;
-    border: 1px solid black;
-
+    grid-template-rows: max-content 1fr;
+    background-color: #E2E8F0;
+    padding: 1.6rem;
+    padding-bottom: 3rem;
+    gap: 1rem;
 }
 
+.projects>h5 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.projects svg {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.card-container {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.5rem;
+    column-gap: 3rem;
+}
+
+.card-container>div {
+    background-color: white;
+    padding: 1.3rem;
+    border-radius: 10px;
+    border-left:10px solid #F0B429;
+    display: grid;
+    align-content: space-between;
+}
+
+.card-container>div p {
+    color: rgb(78, 77, 77);
+    margin: 0;
+    word-spacing: 0.1px;
+    font-family: var(--roboto);
+}
+.card-container > div h5{
+    margin: 0;
+    font-size: 1rem;
+}
+.card-container > div > div:nth-child(1){
+    display: grid;
+    gap: 0.5rem;
+}
+.card-container > div >div:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    padding-right: 1rem;
+}
+
+svg:hover,
+img:hover{
+    cursor: pointer;
+}
+.projects div:has(svg){
+    /* display: flex;
+    justify-content: flex-end; */
+}
 .news {
     grid-column: 3;
     grid-row: 2;
